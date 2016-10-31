@@ -1,0 +1,22 @@
+{
+  "name": "deathmatch-warriors-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markedwardsims/deathmatch-warriors-services.git"
+  },
+  "author": "Mark Edward Sims",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/markedwardsims/deathmatch-warriors-services/issues"
+  },
+  "homepage": "https://github.com/markedwardsims/deathmatch-warriors-services#readme",
+  "dependencies": {
+    "restify": "^4.2.0"
+  }
+}
