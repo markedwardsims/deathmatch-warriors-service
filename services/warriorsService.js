@@ -1,6 +1,6 @@
-import WarriorModel from '../database';
+import {WarriorModel} from '../database';
 
-class WarriorsService {
+export default class WarriorsService {
 
     getAllWarriors() {
         return WarriorModel.findAll();
@@ -14,5 +14,3 @@ class WarriorsService {
         });
     }
 }
-
-module.exports = WarriorsService;

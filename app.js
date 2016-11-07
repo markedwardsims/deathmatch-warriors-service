@@ -47,7 +47,7 @@ server
         next();
     });
 
-server.get({path: '/warriors/:id'}, warriorsController.get);
+server.get({path: '/warriors'}, warriorsController.getAll);
 server.get({path: '/warriors/:id'}, warriorsController.get);
 
 // enable security middleware if set in the config
