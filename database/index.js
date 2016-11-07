@@ -14,4 +14,4 @@ export let sequelize = new Sequelize(
     }
 );
 
-export var WarriorModel = sequelize.import('../models/warriorModel.js');
+export let WarriorModel = sequelize.import('../models/warriorModel.js');

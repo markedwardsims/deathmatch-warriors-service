@@ -1,10 +1,9 @@
-'use strict';
+import winston from 'winston';
+import uuid from 'node-uuid';
 
-class Logger {
+export default class Logger {
     constructor() {
         console.log('LOGGER');
-        this.uuid = require('node-uuid');
-        let winston = require('winston');
         this.logger = new winston.Logger({
             transports: [ 
                 new winston.transports.Console({
@@ -21,7 +20,7 @@ class Logger {
 
     log(type, message, data) {
         data = data || {};
-        data.id = this.uuid.v4();
+        data.id = uuid.v4();
         this.logger.log(type, message, data);
         return data.id;
     }
@@ -38,7 +37,7 @@ class Logger {
         return this.log('error', message, data);
     }
 
-    processError(error, process, config){
+    processError(error, process, config) {
         return this.log('error', `${error.name} : ${error.message}`, {
             name: 'ProcessException',
             stack: error.stack,
@@ -47,11 +46,11 @@ class Logger {
         });
     }
 
-    webError(request, response, route, error){
+    webError(request, response, route, error) {
         return this.log('error', error.name || error.message, this.__toWebLogData(request, response, route, error));
     }
 
-    __toWebLogData(request, response, route, error){
+    __toWebLogData(request, response, route, error) {
         return {
             request: {
                 path: (route && route.path) ? route.path : null,
@@ -75,5 +74,3 @@ class Logger {
         }
     }
 }
-
-module.exports = new Logger();

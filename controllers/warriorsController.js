@@ -1,8 +1,8 @@
-'use strict';
+import WarriorsService from '../services/warriorsService.js';
 
-let warriorsService = new (require('../services/warriorsService.js'));
+let warriorsService = new WarriorsService();
 
-class WarriorsController {
+export default class WarriorsController {
     getAll(req, res, next) {
         warriorsService.getAllWarriors()
             .then((warriors) => {
@@ -27,5 +27,3 @@ class WarriorsController {
             });
     }
 }
-
-module.exports = WarriorsController;

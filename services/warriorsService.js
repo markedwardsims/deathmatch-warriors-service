@@ -1,15 +1,13 @@
-'use strict';
-
-let Warrior = require('../database').Warrior;
+import WarriorModel from '../database';
 
 class WarriorsService {
 
     getAllWarriors() {
-        return Warrior.findAll();
+        return WarriorModel.findAll();
     }
 
     getWarriorById(id) {
-        return Warrior.findOne({
+        return WarriorModel.findOne({
             where: {
                 id: id
             }
