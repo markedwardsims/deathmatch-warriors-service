@@ -1,5 +1,13 @@
 import {WarriorModel} from '../database';
 
+let getWarriorById = (id) => {
+    return WarriorModel.findOne({
+        where: {
+            id: id
+        }
+    });
+}
+
 export default class WarriorsService {
 
     getAllWarriors() {
@@ -7,22 +15,14 @@ export default class WarriorsService {
     }
 
     getWarriorById(id) {
-        return WarriorModel.findOne({
-            where: {
-                id: id
-            }
-        });
+        return getWarriorById(id);
     }
 
     updateWarrior(id, req) {
-        return WarriorModel.findOne({
-            where: {
-                id: id
-            }
-        })
-        .then((warrior) => {
-            warrior.update(req);
-            return warrior;
-        })
+        return getWarriorById(id)
+            .then((warrior) => {
+                warrior.update(req);
+                return warrior;
+            });
     }
 }
