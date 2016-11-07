@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --compilers js:babel-register --require babel-polyfill **/*.spec.js",
     "start": "babel-node app.js"
   },
   "repository": {
@@ -32,6 +32,8 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0"
+    "babel-cli": "^6.18.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
   }
 }
