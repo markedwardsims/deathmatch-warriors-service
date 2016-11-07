@@ -1,11 +1,9 @@
 import restify from 'restify';
 import * as config from './config';
 import Logger from './logging';
-import WarriorsController from './controllers/warriorsController.js';
+import initRoutes from './routes';
 
-let warriorsController = new WarriorsController();
 let logger = new Logger();
-
 
 process.on('uncaughtException',  (err) => {
     var logId = logger.processError(err, process, config);
@@ -47,16 +45,13 @@ server
         next();
     });
 
-server.get({path: '/warriors'}, warriorsController.getAll);
-server.get({path: '/warriors/:id'}, warriorsController.get);
-
 // enable security middleware if set in the config
 // if (config.server.enableSecurity) {
 //     server.use(authentication(server))
 //         .use(authorization(server));
 // }
 
-// require('./routes')(server);
+initRoutes(server);
 
 server.on('uncaughtException', (request, response, route, error) => {
     response.statusCode = 500;
