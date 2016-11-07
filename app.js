@@ -46,7 +46,7 @@ server
         next();
     });
 
-server.get({path: '/warriors'}, warriorsController.getAll);
+server.get({path: '/warriors/:id'}, warriorsController.get);
 server.get({path: '/warriors/:id'}, warriorsController.get);
 
 // enable security middleware if set in the config
@@ -54,6 +54,8 @@ server.get({path: '/warriors/:id'}, warriorsController.get);
 //     server.use(authentication(server))
 //         .use(authorization(server));
 // }
+
+// require('./routes')(server);
 
 server.on('uncaughtException', (request, response, route, error) => {
     response.statusCode = 500;

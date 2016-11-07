@@ -1,6 +1,5 @@
 'use strict';
 
-let Promise = require('bluebird');
 let Warrior = require('../database').Warrior;
 
 class WarriorsService {

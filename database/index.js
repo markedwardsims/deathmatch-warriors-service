@@ -1,9 +1,7 @@
-'use strict';
+import * as config from '../config';
+import Sequelize from 'sequelize';
 
-let config = require('../config');
-let Sequelize = require('sequelize');
-
-let sequelize = new Sequelize(
+export let sequelize = new Sequelize(
     config.database.name,
     config.database.username,
     config.database.password,
@@ -16,7 +14,4 @@ let sequelize = new Sequelize(
     }
 );
 
-var Warrior = sequelize.import('../models/warriorModel.js');
-
-module.exports.sequelize = sequelize;
-module.exports.Warrior = Warrior;
+export var WarriorModel = sequelize.import('../models/warriorModel.js');
