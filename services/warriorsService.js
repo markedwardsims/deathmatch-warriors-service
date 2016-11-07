@@ -13,4 +13,16 @@ export default class WarriorsService {
             }
         });
     }
+
+    updateWarrior(id, req) {
+        return WarriorModel.findOne({
+            where: {
+                id: id
+            }
+        })
+        .then((warrior) => {
+            warrior.update(req);
+            return warrior;
+        })
+    }
 }

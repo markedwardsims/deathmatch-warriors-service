@@ -28,7 +28,7 @@ server
 	// .use(restify.CORS())
 
 	// allows the use of POST requests
-    // .use(restify.fullResponse())
+    .use(restify.fullResponse())
 
     // parses out the accept header and ensures the server can respond
     // to the client’s request
@@ -38,7 +38,7 @@ server
     // .use(restify.queryParser())
 
     // parses the body based on the content-type header
-    // .use(restify.bodyParser())
+    .use(restify.bodyParser())
 
     .use((req, res, next) => {
         req.server = server;
