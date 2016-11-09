@@ -18,10 +18,10 @@ export default class WarriorsService {
         return getWarriorById(id);
     }
 
-    updateWarrior(id, req) {
+    updateWarrior(id, warrior) {
         return getWarriorById(id)
             .then((warrior) => {
-                warrior.update(req);
+                warrior.update(warrior);
                 return warrior;
             });
     }

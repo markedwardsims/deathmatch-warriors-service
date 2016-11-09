@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register --require babel-polyfill **/*.spec.js",
+    "coverage": "nyc _mocha --compilers js:babel-register **/*.spec.js",
     "start": "babel-node app.js"
   },
   "repository": {
@@ -33,7 +34,36 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-istanbul": "^0.11.0",
+    "babel-plugin-rewire": "^1.0.0",
+    "babel-template": "^6.16.0",
+    "babel-types": "^6.18.0",
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "nyc": "^8.4.0",
+    "sinon": "^1.17.6"
+  },
+  "nyc": {
+    "include": [
+      "**/*.js"
+    ],
+    "exclude": [
+      "node_modules/",
+      "**/*.spec.js"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "require": [
+      "babel-polyfill"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   }
 }
